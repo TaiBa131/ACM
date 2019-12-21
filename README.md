@@ -7,3 +7,35 @@ The principal idea is an IOT device that can detect the state of the classroom a
 I'll be using an Arduino for the project, mainly an Uno because of the dynamic memory (RAM) limitations on the Nano, even though I'll try, the main limitation are the external libraries e.g. for the ENC28J60 chip
 
 I might try working with different branches, but the main one will surely be for the Arduino Uno.
+
+## Features
+
+##### Main:
+- Send Discord messages
+
+##### Planned:
+- Detect when a chalk / pen box is "empty"
+
+###### Possible:  
+- Detect if lights are on
+- Detect if windows are opend (heat)
+- Detect if people are in the classroom (sound)
+
+## What's Maîtrise d'ouvrage (MAIOU)  ?
+
+It's a school subject. We do projects and stuff...
+
+My first ever project is **this**, and explained in documents sent to the specific teachers are the features that this project requires.
+The first idea was a box that contains chalk or pens and would send an email if it's empty.  
+This has been changed to using Discord to send a message.
+
+## Is it working? 
+
+No? Kind of?  
+Not yet.
+
+Check the [branches](https://github.com/TaiBa131/ACM/branches).
+
+### Releases
+There might be releases?  
+I don't really know what i'm gonna release though, probaby just version it, if needed.
