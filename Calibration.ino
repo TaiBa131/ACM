@@ -6,9 +6,9 @@
 // Calibration Sketch ( https://github.com/olkal/HX711_ADC/blob/master/examples/Calibration/Calibration.ino )
 // !!Adapted to my Setup!!
 //
-// Calibrated using a swiss army knife that weighs around 100-101g, which is precise enough for me
-// Then used that number in my project, as i prefer NOT saving in on the EEPROM
-// This is added to the repo to show what i used
+// Calibrated using a swiss army knife that weighs around 100-101g, which is CURRENTLY precise enough for me
+// Then used that number in my code, as i prefer NOT saving in on the EEPROM
+// This is added to the repo to show what i used 
 
 #include <HX711_ADC.h>
 #include <EEPROM.h>
