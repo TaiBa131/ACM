@@ -12,6 +12,8 @@ I might try working with different branches, but the main one will surely be for
 
 ##### Main:
 - Send Discord messages
+- Use the HX711 / Load Cell
+  - it prints the measurements to the Serial port
 
 ##### Planned:
 - Detect when a chalk / pen box is "empty"
@@ -34,7 +36,8 @@ This has been changed to using Discord to send a message.
 No? Kind of?  
 Not yet.
 
-Check the [branches](https://github.com/TaiBa131/ACM/branches).
+Check the [branches](https://github.com/TaiBa131/ACM/branches)?
+or just this.
 
 ### Releases
 There might be releases?  
