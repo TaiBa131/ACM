@@ -59,8 +59,7 @@ void setup() {
   
   Serial.println("TareOffset: " + String(LoadCell.getTareOffset())); // prints the Tare Offset to be saved later, as the device WILL be rebooted randomly when finished
   
-  // Sends a test message via the webhook over to Discord
-  sendMessage("Hello World without TTS AT ALL");
+  sendMessage("Hello World without TTS AT ALL"); // Sends a test message via the webhook over to Discord
 }
 
 void loop() {
@@ -83,16 +82,19 @@ void weigh() {
 void sendMessage(String content) {
   Serial.println("[HTTP] Connecting to Discord...");
   Serial.println("[HTTP] Message: " + content);
-  Serial.println("[HTTP] TTS: " + discord_tts);
   http_client.post(discord_webhook, "application/json", "{\"content\":\"" + content + "\"" + "}");
-  // read the status code and body of the response
+  
+  // save the status code
   int statusCode = http_client.responseStatusCode();
-  String response = http_client.responseBody();
+  //String response = http_client.responseBody();
   
   Serial.print("[HTTP] Status code: ");
   Serial.println(statusCode);
-  Serial.print("[HTTP] Response: ");
-  Serial.println(response);
+  
+  if(statusCode != 204) { // In case of error
+    Serial.print("[HTTP] Response: ");
+    Serial.println(http_client.responseBody()); // print http response
+  }
 }
 
 void dhcpCheck() {
