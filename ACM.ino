@@ -2,6 +2,10 @@
   ACM - Adaptive Classroom Manager - Early POC - Without Electronics
 */
 
+unsigned long prevTime=0;
+unsigned long interval = 500;
+int check=0;
+
 void setup() {
 
   Serial.begin(9600); // Open serial with 9600 baud
@@ -26,24 +30,31 @@ void setup() {
 
 void loop() {
   //weigh();
-  Serial.println(LoadCellupdate());
+  Serial.println(LoadCellData());
   delay(500); // waits for a second and a half
 }
 
 
 
-int LoadCellupdate() {
-  return random(0, 11);
+void weigh() {
+  float i = LoadCellData();
+  String text = "Weight[g]: " + String(i);
+  Serial.println(text);
+
+  checkWeight();
 }
 
 
-
-
-void weigh() {
-  float data = LoadCellupdate();
-  float i = data;
-  String text = "Weight[g]: " + String(i);
-  Serial.println(text);
+// Has not been tested
+// This should increase check, if the time interval was right and the "load" under 10g
+// If the check amount is over 5, it restes it, and prints something
+void checkWeight() {
+  if((millis() - prevTime >= interval) && (LoadCellData()<=10)){
+    check++;
+  } else if(check>5) {
+    check=0;
+    Serial.println("This Works");
+  }
 }
 
 
@@ -62,4 +73,10 @@ void sendMessage(String content) {
     Serial.print("[HTTP] Response: ");
     Serial.println("Error");
   }
+}
+
+
+
+int LoadCellData() {
+  return random(0, 11);
 }
