@@ -3,7 +3,7 @@
 */
 
 unsigned long prevTime=0;
-unsigned long interval = 500;
+unsigned long interval = 100;
 int check=0;
 
 void setup() {
@@ -14,12 +14,11 @@ void setup() {
     ; // wait for serial port to connect, needed for testing, otherwise its useless
   }
 
-  Serial.print("My IP address");
+  Serial.println("My IP address");
   
   Serial.println("TareOffset: " + String(80)); // prints the Tare Offset to be saved later, as the device WILL be rebooted randomly when finished
   
   sendMessage("Hello World without TTS AT ALL"); // Sends a test message via the webhook over to Discord
-
 
 
 
@@ -29,8 +28,7 @@ void setup() {
 
 
 void loop() {
-  //weigh();
-  Serial.println(LoadCellData());
+  weigh();
   delay(500); // waits for a second and a half
 }
 
@@ -41,19 +39,24 @@ void weigh() {
   String text = "Weight[g]: " + String(i);
   Serial.println(text);
 
-  checkWeight();
+  checkWeight(i);
 }
 
 
-// Has not been tested
+// Has kind of been tested
+// -> using paramater from weigh() to checkWeight() instead of global variable
+//
 // This should increase check, if the time interval was right and the "load" under 10g
-// If the check amount is over 5, it restes it, and prints something
-void checkWeight() {
-  if((millis() - prevTime >= interval) && (LoadCellData()<=10)){
-    check++;
-  } else if(check>5) {
+// If the check amount is equal to 5, it restes it, and prints something
+void checkWeight(float i) {
+  if(check=5) {
     check=0;
     Serial.println("This Works");
+  } else if (int(i) >= 10) {
+    check=0;
+  } else if ( ((unsigned long) (millis() - prevTime) >= interval) && (int(i) < 10) ) {
+    check++;
+    prevTime = millis();
   }
 }
 
