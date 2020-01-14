@@ -13,16 +13,9 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect, needed for testing, otherwise its useless
   }
-
-  Serial.println("My IP address");
-  
-  Serial.println("TareOffset: " + String(80)); // prints the Tare Offset to be saved later, as the device WILL be rebooted randomly when finished
-  
-  Serial.println("Hello World without TTS AT ALL"); // Sends a test message via the webhook over to Discord
-
-
-
   randomSeed(analogRead(0)); // Random seed for Random number
+
+  Serial.println("Setup successful.");
 }
 
 
@@ -39,20 +32,27 @@ void weigh() {
   String text = "Weight[g]: " + String(i);
   Serial.println(text);
 
-  checkWeight(i);
+  int tmp = int(i);
+  checkWeight(tmp, text);
 }
 
-// This should increase check, if the time interval was right and the "load" under 10g
-// If the check amount is equal to 5, it restes it, and prints something
-void checkWeight(float i) {
-  if(check==5) {
+// If the load is under 10g, its in the interval and if has successfully checked 4 times,
+// the Weight has been under 10 for 5 checks, so it sends a message and resets the check amount
+//
+// Otherwise, if its not under 10, or its not the interval YET,
+// it check if its over 10, and if its the case,
+// it resets it.
+void checkWeight(int i, String text) {
+  if( (int(i) < 10) && ((unsigned long) (millis() - prevTime) >= interval)) {
+    if(check==4) {
+      check=0;
+      Serial.println("This Works");
+    } else {
+      check++;
+      prevTime = millis();
+    }
+  } else if (int(i)>=10) {
     check=0;
-    Serial.println("This Works");
-  } else if (int(i) >= 10) {
-    check=0;
-  } else if ( ((unsigned long) (millis() - prevTime) >= interval) && (int(i) < 10) ) {
-    check++;
-    prevTime = millis();
   }
 }
 
