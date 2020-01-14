@@ -49,7 +49,7 @@ void weigh() {
 // This should increase check, if the time interval was right and the "load" under 10g
 // If the check amount is equal to 5, it restes it, and prints something
 void checkWeight(float i) {
-  if(check=5) {
+  if(check==5) {
     check=0;
     Serial.println("This Works");
   } else if (int(i) >= 10) {
