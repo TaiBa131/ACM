@@ -2,8 +2,8 @@
   ACM - Adaptive Classroom Manager - Early POC - Without Electronics
 */
 
-unsigned long prevTime=0;
-unsigned long interval = 100;
+unsigned long prevTime= 0;
+unsigned long interval = 700;
 int check=0;
 
 void setup() {
@@ -30,7 +30,7 @@ void loop() {
 void weigh() {
   float i = LoadCellData();
   String text = "Weight[g]: " + String(i);
-  Serial.println(text);
+  Serial.print(text); // !!! Change to println !!!
 
   int tmp = int(i);
   checkWeight(tmp, text);
@@ -46,13 +46,17 @@ void checkWeight(int i, String text) {
   if( (int(i) < 10) && ((unsigned long) (millis() - prevTime) >= interval)) {
     if(check==4) {
       check=0;
-      Serial.println("This Works");
+      Serial.println("            Sending Message here");         //Not Needed
     } else {
       check++;
+      Serial.println(" (check++)  " + String(check) + "   / 5");  //Not Needed
       prevTime = millis();
     }
   } else if (int(i)>=10) {
     check=0;
+    Serial.println("           0     0");                         //Not Needed
+  } else {                                                        //Not Needed
+    Serial.println("");                                           //Not Needed
   }
 }
 
