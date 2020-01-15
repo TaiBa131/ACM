@@ -13,6 +13,7 @@ void setup() {
   while (!Serial) {
     ; // wait for serial port to connect, needed for testing, otherwise its useless
   }
+
   randomSeed(analogRead(0)); // Random seed for Random number
 
   Serial.println("Setup successful.");
