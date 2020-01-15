@@ -32,8 +32,7 @@ void weigh() {
   String text = "Weight[g]: " + String(i);
   Serial.print(text); // !!! Change to println !!!
 
-  int tmp = int(i);
-  checkWeight(tmp, text);
+  checkWeight(i, text);
 }
 
 // If the load is under 10g, its in the interval and if has successfully checked 4 times,
