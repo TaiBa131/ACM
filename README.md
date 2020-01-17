@@ -42,3 +42,12 @@ or just this.
 ### Releases
 There might be releases?  
 I don't really know what i'm gonna release though, probaby just version it, if needed.
+
+## Additional Info
+This is currently "based" on the [Ethernet library's DHCP-based IP printer sketch](https://github.com/arduino-libraries/Ethernet/blob/master/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino), [@maditnerd implementation of sending Discord messages](https://github.com/maditnerd/discord_test/blob/master/discord_test_mkr1010/discord.h), aswell as [Michael Schoeffler's OLED + HX711 code](http://www.mschoeffler.de/2017/12/04/arduino-tutorial-hx711-load-cell-amplifier-weight-sensor-module-lcm1602-iic-v1-lcd/).
+ 
+Knowing pretty much nothing in electronics, Arduino/Microcontroller related things, the libraries i used, or even C++ (We only cover Java at school), i looked up a lot of things online, and adapted the examples to fit my goal.
+The included Examples in the "Arduino IDE" (File -> Examples) and the Arduino Referce were quite helpful at understanding how an Arduino works or more C++ specific things.
+
+### NGINX config
+Check the [config file](tools/nginx.conf).

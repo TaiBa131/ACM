@@ -1,11 +1,6 @@
 /*
-  ACM - Adaptive Classroom Manager - Early POC$
-  This is currently "based" on the Ethernet library's DHCP-based IP printer sketch, @maditnerd implementation of sending Discord messages, aswell as Michael Schoeffler's OLED + HX711 code.
-  https://github.com/arduino-libraries/Ethernet/blob/master/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino
-  https://github.com/maditnerd/discord_test/blob/master/discord_test_mkr1010/discord.h
-  http://www.mschoeffler.de/2017/12/04/arduino-tutorial-hx711-load-cell-amplifier-weight-sensor-module-lcm1602-iic-v1-lcd/
-  
-  Knowing pretty much nothing in electronics, arduino, the libraries i used, or even C++ (We ONLY cover JAVA at school), i looked up a lot of things online, and adapted the examples to fit my goal.
+  ACM - Adaptive Classroom Manager - Early POC
+  https://github.com/TaiBa131/ACM
 */
 
 #include <Ethernet.h>
