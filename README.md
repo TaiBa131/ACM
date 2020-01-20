@@ -14,12 +14,12 @@ I might try working with different branches, but the main one will surely be for
 - Send Discord messages
 - Use the HX711 / Load Cell
   - it prints the measurements to the Serial port
-
-##### Planned:
 - Detect when a chalk / pen box is "empty"
 
-###### Possible:  
+##### Planned/WIP:
 - Detect if lights are on
+
+###### Possible:  
 - Detect if windows are opend (heat)
 - Detect if people are in the classroom (sound)
 
@@ -34,7 +34,7 @@ This has been changed to using Discord to send a message.
 ## Is it working? 
 
 No? Kind of?  
-Not yet.
+Not yet. Soon
 
 Check the [branches](https://github.com/TaiBa131/ACM/branches)?
 or just this.
@@ -44,7 +44,7 @@ There might be releases?
 I don't really know what i'm gonna release though, probaby just version it, if needed.
 
 ## Additional Info
-This is currently "based" on the [Ethernet library's DHCP-based IP printer sketch](https://github.com/arduino-libraries/Ethernet/blob/master/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino), [@maditnerd implementation of sending Discord messages](https://github.com/maditnerd/discord_test/blob/master/discord_test_mkr1010/discord.h), aswell as [Michael Schoeffler's OLED + HX711 code](http://www.mschoeffler.de/2017/12/04/arduino-tutorial-hx711-load-cell-amplifier-weight-sensor-module-lcm1602-iic-v1-lcd/).
+This is currently "based" on the [Ethernet library's DHCP-based IP printer sketch](https://github.com/arduino-libraries/Ethernet/blob/master/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino), [@maditnerd implementation of sending Discord messages](https://github.com/maditnerd/discord_test/blob/master/discord_test_mkr1010/discord.h), [Michael Schoeffler's OLED + HX711 code](http://www.mschoeffler.de/2017/12/04/arduino-tutorial-hx711-load-cell-amplifier-weight-sensor-module-lcm1602-iic-v1-lcd/), aswell as [Aranacorp's code for the photoresistor measurements](https://www.aranacorp.com/en/luminosity-measurement-with-a-photoresistor/).
  
 Knowing pretty much nothing in electronics, Arduino/Microcontroller related things, the libraries i used, or even C++ (We only cover Java at school), i looked up a lot of things online, and adapted the examples to fit my goal.
 The included Examples in the "Arduino IDE" (File -> Examples) and the Arduino Referce were quite helpful at understanding how an Arduino works or more C++ specific things.
