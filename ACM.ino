@@ -50,8 +50,6 @@ void setup() {
   LoadCell.start(2000); // 2000 ms to stabilize but will be set to 0 when the tare offset is found
   LoadCell.setCalFactor(4110.26); // Calibration factor from the calibration sketch
 
-  randomSeed(analogRead(0)); // Random seed for Random number
-
   Serial.println("Setup successful.");
 }
 
