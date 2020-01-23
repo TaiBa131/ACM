@@ -1,5 +1,9 @@
-//domain name of the server
-#define SECRET_SERVER     "example.org"
+//Domain of the MQTT Server
+#define SECRET_SERVER     "maiou.root.sx"
+//Port of the MQTT Server
+#define SECRET_PORT 1883
 
-//http link to the webhook / proxy
-#define discord_webhook   "http://example.com/api/webhooks/451/L33T1InK"
+//Classroom
+#define SECRET_CLASSROOM  "219"
+//Site of the Classroom
+#define SECRET_SITE "SL"
