@@ -4,7 +4,6 @@
 */
 
 #include <Ethernet.h>
-#include <ArduinoHttpClient.h>
   // HX711_ADC HAS A CHANGED config.h (#define SAMPLES 2)
 #include <HX711_ADC.h> // https://github.com/olkal/HX711_ADC
 #include <ArduinoMqttClient.h>
