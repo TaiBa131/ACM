@@ -19,12 +19,18 @@ int         port = SECRET_PORT;
 String classroom = SECRET_CLASSROOM;
 String site = SECRET_SITE;
 
+const int sensorPin = A5;
+const int VIN = 5;
+const int R = 10000;
+
 EthernetClient client;
 MqttClient mqtt(client);
 HX711_ADC LoadCell(3, 4); // data pin + serial clock pin
 
 unsigned long prevTime= 0;
 unsigned long interval = 700;
+int sensorVal=0;
+int lux=0;
 int check=0;
 
 void setup() {
@@ -64,6 +70,7 @@ void setup() {
 void loop() {
   mqtt.poll();
   Ethernet.maintain();
+  
   weigh();
   // delay(500); // waits for a second and a half
 }
@@ -82,6 +89,7 @@ void weigh() {
   Serial.println(text);
 
   checkWeight(i, text);
+  checkLight();
 }
 
 void checkWeight(float i, String text) {
@@ -98,10 +106,29 @@ void checkWeight(float i, String text) {
   }
 }
 
+void checkLight() {
+  //Check if it is 3AM
+  int lumen = getLux();
+  if(lumen < 50){
+    Serial.print("Light Off    ");
+  } else {
+    Serial.print("Light On     ");
+  }
+  Serial.println(String(lumen));
+}
+
 void sendMessage(String content, String reason){
   String topic = (site + "/classroom/" + classroom + "/" + reason);
   Serial.println(topic + ": \"" + content + "\"" );
   mqtt.beginMessage(topic);
   mqtt.print(content);
   mqtt.endMessage();
+}
+
+int getLux() {
+  sensorVal = analogRead(sensorPin);
+  float Vout = float(sensorVal) * (VIN / float(1023));// Conversion analog to voltage
+  float RLDR = (R * (VIN - Vout))/Vout; // Conversion voltage to resistance
+  int phys=500/(RLDR/1000); // Conversion resitance to lumen
+  return phys;
 }
