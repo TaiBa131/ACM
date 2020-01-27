@@ -100,12 +100,14 @@ void beginEthernet() {
 }
 
 void beginMqtt() {
+  Serial.println("Connecting to the MQTT Broker");
   if (!mqtt.connect(broker, port)) {
     while (1);
   }
 }
 
 void beginLoadCell() {
+  Serial.println("Starting the connection to the Load Cell");
   LoadCell.begin(); // start hx711 connection 
   LoadCell.start(2000); // 2000 ms to stabilize but will be set to 0 when the tare offset is found
   LoadCell.setCalFactor(819); // Calibration factor from Serialthe calibration sketch
