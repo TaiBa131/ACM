@@ -29,6 +29,10 @@ EthernetClient client;
 MqttClient mqtt(client);
 HX711_ADC LoadCell(3, 4); // data pin + serial clock pin
 
+///////////////
+//   SETUP   //
+///////////////
+
 void setup() {
   beginSerial();
   beginEthernet();
@@ -38,7 +42,9 @@ void setup() {
   Serial.println("Setup successful.");
 }
 
-
+///////////////
+//   LOOP    //
+///////////////
 
 void loop() {
   mqtt.poll();
@@ -48,6 +54,10 @@ void loop() {
   light();
   delay(3000);
 }
+
+///////////////
+//  VARIOUS  //
+///////////////
 
 void weight() {
   LoadCell.update();
