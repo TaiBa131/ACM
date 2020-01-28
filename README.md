@@ -15,9 +15,10 @@ I might try working with different branches, but the main one will surely be for
 - Use the HX711 / Load Cell
   - it prints the measurements to the Serial port
 - Detect when a chalk / pen box is "empty"
+- Detect if lights are on
 
 ##### Planned/WIP:
-- Detect if lights are on
+- Fixing stuff up
 
 ###### Possible:  
 - Detect if windows are opend (heat)
@@ -45,6 +46,8 @@ I don't really know what i'm gonna release though, probaby just version it, if n
 
 ## Additional Info
 This is currently "based" on the [Ethernet library's DHCP-based IP printer sketch](https://github.com/arduino-libraries/Ethernet/blob/master/examples/DhcpAddressPrinter/DhcpAddressPrinter.ino), [@maditnerd implementation of sending Discord messages](https://github.com/maditnerd/discord_test/blob/master/discord_test_mkr1010/discord.h), [Michael Schoeffler's OLED + HX711 code](http://www.mschoeffler.de/2017/12/04/arduino-tutorial-hx711-load-cell-amplifier-weight-sensor-module-lcm1602-iic-v1-lcd/), aswell as [Aranacorp's code for the photoresistor measurements](https://www.aranacorp.com/en/luminosity-measurement-with-a-photoresistor/).
+ 
+To switch to MQTT instead of using a reverse proxy and doing everything on the Arduino, I used [a MQTT Library with pretty good examples.](https://github.com/arduino-libraries/ArduinoMqttClient).
  
 Knowing pretty much nothing in electronics, Arduino/Microcontroller related things, the libraries i used, or even C++ (We only cover Java at school), i looked up a lot of things online, and adapted the examples to fit my goal.
 The included Examples in the "Arduino IDE" (File -> Examples) and the Arduino Referce were quite helpful at understanding how an Arduino works or more C++ specific things.
