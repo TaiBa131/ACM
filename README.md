@@ -1,6 +1,8 @@
 # Adaptive Classroom Manager
 This is my first real Github / MAIOU Project, it'll be used to coordinate my (*also*) first ever "*Maîtrise d'ouvrage*" project.
 
+![ACM](images/acm.jpg)
+
 **Adaptive Classroom Manager**, or ACM, is the original name of my first ever "Maîtrise d'ouvrage" project.
 The principal idea is an IOT device that can detect the state of the classroom and report that state to some authority; for the MAIOU project, its mostly a Proof of Concept, so there are ideas and features that will not be implemented, but theoretically could be in the future.
 
@@ -24,21 +26,25 @@ I might try working with different branches, but the main one will surely be for
 - Detect if windows are opend (heat)
 - Detect if people are in the classroom (sound)
 
-## What's Maîtrise d'ouvrage (MAIOU)  ?
+## What's Maîtrise d'ouvrage (MAIOU)? and what are you going to do?
 
 It's a school subject. We do projects and stuff...
 
 My first ever project is **this**, and explained in documents sent to the specific teachers are the features that this project requires.
 The first idea was a box that contains chalk or pens and would send an email if it's empty.  
-This has been changed to using Discord to send a message.
+This has been changed to using Discord to send a message, as it is way simpler to just make an HTTP request than to send an email. (in this case to my server, because the Arduino isn't powerful enough for SSL required by the Discord API)
+
+In the end I sent everything over MQTT and it was handled on NodeRED in a cleaner way.
+
+The MQTT topic was as such: `site + "/classroom/" + classroom + "/" + reason"`. (site being the location) <br>
+Example: "SL/classroom/242/light"
+
+This makes it easy to know expand, as we can still add other reasons, or even other tools that aren't even in classrooms.
 
 ## Is it working? 
 
-No? Kind of?  
-Not yet. Soon
-
-Check the [branches](https://github.com/TaiBa131/ACM/branches)?
-or just this.
+Yes, somewhat.
+Most of the work is done on NodeRED, which isn't included in this repository.
 
 ### Releases
 There might be releases?  
