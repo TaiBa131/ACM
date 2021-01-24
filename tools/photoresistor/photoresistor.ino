@@ -1,6 +1,7 @@
 /*
   Photocell reading program
   https://www.aranacorp.com/en/luminosity-measurement-with-a-photoresistor/
+  Copyright Xukyo / Aranacorp.com all rights reserved
 */
 // Constants
 #define DELAY 500 // Delay between two measurements in ms
